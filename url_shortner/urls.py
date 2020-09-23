@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from shortur.views import MyUrlRedirectView, myurl_redirect_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('view-1', myurl_redirect_view),
+    path('view-2', MyUrlRedirectView.as_view()),
+    path('<slug:slug>/', myurl_redirect_view()),
 ]
